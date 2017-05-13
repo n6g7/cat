@@ -1,6 +1,21 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    "messages": {
+      ".read": true,
+
+      "$mid": {
+        ".write": "!data.exists()",
+
+        "text": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        "time": {
+          ".validate": "newData.isNumber() && (now - 1000) < newData.val() && newData.val() < (now + 1000)"
+        },
+        "username": {
+          ".validate": "newData.isString()"
+        }
+      }
+    }
   }
 }
