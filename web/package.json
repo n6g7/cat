@@ -1,0 +1,14 @@
+{
+  "name": "chat-web",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:n6g7/cat.git",
+  "author": "Nathan Gaberel <nathan@gnab.fr>",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "firebase deploy"
+  },
+  "devDependencies": {
+    "firebase-tools": "^3.7.0"
+  }
+}
