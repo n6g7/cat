@@ -16,6 +16,14 @@ module.exports = {
         use: [
           'babel-loader'
         ]
+      },
+      {
+        test: /\.styl$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
       }
     ]
   },

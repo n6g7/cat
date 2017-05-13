@@ -14,9 +14,11 @@ class Chat extends PureComponent {
     } = this.props
 
     return <main>
-      { messages.map((message, index) =>
-        <p key={index}>{ message.text }</p>
-      )}
+      <section>
+        { messages.map((message, index) =>
+          <p key={index}>{ message.text }</p>
+        )}
+      </section>
       <nav>
         <input
           value={newMessage}

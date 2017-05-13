@@ -5,7 +5,7 @@ import Header from './Header'
 
 class App extends PureComponent {
   render () {
-    return <div>
+    return <div className='cat'>
       <Header />
       <Chat />
     </div>

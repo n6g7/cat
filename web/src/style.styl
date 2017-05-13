@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+primary-colour = #e67e22
+grey = #ecf0f1
+radius = 3px
+width = 700px
+
+body
+  background grey
+  font-family 'Roboto Mono', monospace
+  margin 0
+
+button
+  background primary-colour
+  border 0
+  border-radius radius
+  color white
+  cursor pointer
+  font-size 0.9em
+  outline none
+
+.cat
+  align-items center
+  display flex
+  flex-flow column nowrap
+  height 100%
+
+  header
+    padding 40px 0
+    text-align center
+
+    h1
+      font-size: 4em
+      margin 0
+
+  main
+    background white
+    border-radius radius
+    display flex
+    flex-flow column nowrap
+    flex-grow 1
+    width width
+
+    section
+      flex-grow 1
+      padding 5px
+
+      p
+        margin 0
+
+        &:not(:last-of-type)
+          margin-bottom 4px
+
+    nav
+      align-items center
+      background alpha(primary-colour, 30%)
+      border-radius 0 0 radius radius
+      display flex
+      flex-flow row nowrap
+      justify-content center
+      padding 5px 10px
+
+      input
+        background alpha(white, 40%)
+        border none
+        border-bottom 1px solid primary-colour
+        flex-grow 1
+        font-family inherit
+        font-size 1em
+        margin-right 10px
+        outline none
