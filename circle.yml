@@ -1,0 +1,24 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/cat
+
+    docker:
+      - image: node:7
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: cd web && yarn
+
+      - run:
+          name: Run tests
+          command: cd web && yarn test
+
+      - save_cache:
+          key: yarn
+          paths:
+            - ~/.yarn

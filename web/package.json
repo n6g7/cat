@@ -35,5 +35,10 @@
       "es2015",
       "react"
     ]
+  },
+  "standard": {
+    "ignore": [
+      "**/node_modules/**"
+    ]
   }
 }
