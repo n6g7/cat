@@ -4,10 +4,13 @@ import PropTypes from 'prop-types'
 class Message extends PureComponent {
   render () {
     const { message } = this.props
+    const { meta, text } = message
+
+    const style = meta && meta.colour ? { color: meta.colour } : null
 
     return <p>
-      <span className='author'>{ message.meta ? message.meta.name : '??'}</span>
-      { message.text }
+      <span className='author' style={style}>{ meta ? meta.name : '??'}</span>
+      { text }
     </p>
   }
 }

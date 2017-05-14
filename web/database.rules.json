@@ -16,6 +16,19 @@
           ".validate": "newData.val() === auth.uid"
         }
       }
+    },
+    "users": {
+      ".read": false,
+      ".write": false,
+
+      "$uid": {
+        "colour": {
+          ".validate": "newData.val().matches(/^#[0-9a-f]{6}$/i)"
+        },
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        }
+      }
     }
   }
 }
