@@ -2,16 +2,11 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { changeNewMessage, sendNewMessage } from '../redux/reducers/messages.actions'
+import Nav from './Nav'
 
 class Chat extends PureComponent {
   render () {
-    const {
-      changeNewMessage,
-      messages,
-      newMessage,
-      sendNewMessage
-    } = this.props
+    const { messages } = this.props
 
     return <main>
       <section>
@@ -19,34 +14,19 @@ class Chat extends PureComponent {
           <p key={index}>{ message.text }</p>
         )}
       </section>
-      <nav>
-        <input
-          value={newMessage}
-          onChange={event => changeNewMessage(event.target.value)}
-        />
-        <button onClick={sendNewMessage}>Send</button>
-      </nav>
+      <Nav />
     </main>
   }
 }
 
 Chat.propTypes = {
-  changeNewMessage: PropTypes.func.isRequired,
-  messages: PropTypes.array.isRequired,
-  newMessage: PropTypes.string.isRequired,
-  sendNewMessage: PropTypes.func.isRequired
+  messages: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
-  messages: state.messages.list,
-  newMessage: state.messages.new
+  messages: state.messages.list
 })
 
-const mapDispatchToProps = {
-  changeNewMessage,
-  sendNewMessage
-}
-
-const ChatContainer = connect(mapStateToProps, mapDispatchToProps)(Chat)
+const ChatContainer = connect(mapStateToProps)(Chat)
 
 export default ChatContainer
