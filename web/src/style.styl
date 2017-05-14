@@ -5,10 +5,17 @@ grey = #ecf0f1
 radius = 3px
 width = 700px
 
+html
+  height 100%
+
 body
   background grey
   font-family 'Roboto Mono', monospace
+  height 100%
   margin 0
+
+  #root
+    height 100%
 
 button
   background primary-colour
@@ -39,11 +46,13 @@ button
     display flex
     flex-flow column nowrap
     flex-grow 1
+    margin-bottom 10px
     width width
 
     section
       flex-grow 1
       padding 5px
+      overflow-y auto
 
       p
         margin 0

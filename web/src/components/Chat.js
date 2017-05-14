@@ -5,13 +5,17 @@ import { connect } from 'react-redux'
 import Nav from './Nav'
 
 class Chat extends PureComponent {
+  componentDidUpdate (prevProps, prevState) {
+    this.section.scrollTop = this.section.scrollHeight
+  }
+
   render () {
     const { messages } = this.props
 
     return <main>
-      <section>
-        { messages.map((message, index) =>
-          <p key={index}>{ message.text }</p>
+      <section ref={c => { this.section = c }}>
+        { messages.map(message =>
+          <p key={message.id}>{ message.text }</p>
         )}
       </section>
       <Nav />
