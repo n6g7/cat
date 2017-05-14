@@ -1,8 +1,17 @@
-var functions = require('firebase-functions')
+const functions = require('firebase-functions')
+const admin = require('firebase-admin')
 
-// Start writing Firebase Functions
-// https://firebase.google.com/functions/write-firebase-functions
+admin.initializeApp(functions.config().firebase)
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
-  response.send('Hello from Firebase!')
+exports.meta = functions.database.ref('/messages/{mid}').onWrite(event => {
+  const { uid } = event.data.val()
+
+  return admin.auth().getUser(uid)
+  .then(user => {
+    return admin.database().ref(`/messages/${event.params.mid}`).update({
+      meta: {
+        name: user.displayName
+      }
+    })
+  })
 })

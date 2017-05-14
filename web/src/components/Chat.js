@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import Message from './Message'
 import Nav from './Nav'
 
 class Chat extends PureComponent {
@@ -14,9 +15,7 @@ class Chat extends PureComponent {
 
     return <main>
       <section ref={c => { this.section = c }}>
-        { messages.map(message =>
-          <p key={message.id}>{ message.text }</p>
-        )}
+        { messages.map(message => <Message message={message} key={message.id} />)}
       </section>
       <Nav />
     </main>
