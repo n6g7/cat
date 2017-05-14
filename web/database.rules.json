@@ -19,7 +19,6 @@
     },
     "users": {
       ".read": false,
-      ".write": false,
 
       "$uid": {
         "colour": {
@@ -27,6 +26,9 @@
         },
         "name": {
           ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        "token": {
+          ".write": "$uid === auth.uid"
         }
       }
     }
