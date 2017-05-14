@@ -12,8 +12,8 @@
         "time": {
           ".validate": "newData.isNumber() && (now - 1000) < newData.val() && newData.val() < (now + 1000)"
         },
-        "username": {
-          ".validate": "newData.isString()"
+        "uid": {
+          ".validate": "newData.val() === auth.uid"
         }
       }
     }

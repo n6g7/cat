@@ -23,12 +23,13 @@ function * syncMessagesSaga () {
 }
 
 function * sendMessageSaga () {
+  const uid = yield select(state => state.user.user.uid)
   const text = yield select(state => state.messages.new)
 
   yield call(rsf.create, 'messages', {
     text,
     time: new Date().getTime(),
-    username: 'nat'
+    uid
   })
 
   yield put(changeNewMessage(''))
