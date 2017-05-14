@@ -19,7 +19,7 @@
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-saga": "^0.15.3",
-    "redux-saga-firebase": "^0.0.7-a"
+    "redux-saga-firebase": "^0.0.8"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

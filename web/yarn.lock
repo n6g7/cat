@@ -2578,20 +2578,9 @@ glob-slasher@^1.0.1:
     lodash.isobject "^2.4.1"
     toxic "^1.0.0"
 
-glob@7.0.x:
+glob@7.0.x, glob@^7.0.0, glob@^7.0.3, glob@^7.0.5:
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.0.6.tgz#211bafaf49e525b8cd93260d14ab136152b3f57a"
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.2"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.5:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -4596,16 +4585,11 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
-redux-saga-firebase@^0.0.7-a:
-  version "0.0.7-a"
-  resolved "https://registry.yarnpkg.com/redux-saga-firebase/-/redux-saga-firebase-0.0.7-a.tgz#8fb7fd51db8c86e8e660c708868a0adabe8b036d"
+redux-saga-firebase@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/redux-saga-firebase/-/redux-saga-firebase-0.0.8.tgz#cfc3317115b1726016123f0cb5c9dcc2006b4467"
   dependencies:
-    redux-saga "^0.14.3"
-    whatwg-fetch "^2.0.3"
-
-redux-saga@^0.14.3:
-  version "0.14.8"
-  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.14.8.tgz#ad01afabe02ec41a17df54e2e09aa236b30a7732"
+    redux-saga "^0.15.3"
 
 redux-saga@^0.15.3:
   version "0.15.3"
@@ -5708,7 +5692,7 @@ websocket-extensions@>=0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
 
-whatwg-fetch@>=0.10.0, whatwg-fetch@^2.0.3:
+whatwg-fetch@>=0.10.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
 
