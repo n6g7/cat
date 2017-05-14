@@ -18,7 +18,7 @@ export default function * () {
 
   const { token } = yield all({
     token: messaging.getToken(),
-    login: take(types.LOGIN.SUCCESS)
+    login: take(types.SYNC_USER)
   })
   yield fork(saveTokenSaga, token)
 

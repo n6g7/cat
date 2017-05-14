@@ -1,2 +1,4 @@
 dist/*
+!dist/firebase-messaging-sw.js
 !dist/index.html
+!dist/manifest.json
