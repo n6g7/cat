@@ -1,10 +1,7 @@
 import { types } from './messages.actions'
 
 const initialState = {
-  list: [
-    { text: 'hello' },
-    { text: 'world' }
-  ],
+  list: [],
   new: ''
 }
 
