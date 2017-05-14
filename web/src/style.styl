@@ -35,10 +35,17 @@ button
   header
     padding 40px 0
     text-align center
+    transition 1s
 
     h1
       font-size: 4em
       margin 0
+
+    @media screen and (max-width: width)
+      padding 20px 0
+
+      h1
+        font-size: 2em
 
   main
     background white
@@ -48,6 +55,10 @@ button
     flex-grow 1
     margin-bottom 10px
     width width
+
+    @media screen and (max-width: width)
+      margin-bottom: 0
+      width 100%
 
     section
       flex-grow 1
@@ -71,7 +82,7 @@ button
       display flex
       flex-flow row nowrap
       justify-content center
-      padding 5px 10px
+      padding 10px 10px
 
       input
         background alpha(white, 40%)
