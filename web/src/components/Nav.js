@@ -6,6 +6,15 @@ import { changeNewMessage, sendNewMessage } from '../redux/reducers/messages.act
 import { login } from '../redux/reducers/user.actions'
 
 class Nav extends PureComponent {
+  constructor (props) {
+    super(props)
+    this.onKeyPress = this.onKeyPress.bind(this)
+  }
+
+  onKeyPress (event) {
+    if (event.key === 'Enter') this.props.sendNewMessage()
+  }
+
   render () {
     const {
       changeNewMessage,
@@ -20,7 +29,9 @@ class Nav extends PureComponent {
         <input
           value={newMessage}
           onChange={event => changeNewMessage(event.target.value)}
-          />
+          onKeyPress={this.onKeyPress}
+          autoFocus
+        />
       }
       { loggedIn &&
         <button onClick={sendNewMessage}>Send</button>
