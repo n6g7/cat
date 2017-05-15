@@ -6,9 +6,11 @@ import rsf from '../rsf'
 import { types } from '../reducers/user.actions'
 
 function * saveTokenSaga (token) {
-  const uid = yield select(state => state.user.user.uid)
+  const uid = yield select(state => state.user.user ? state.user.user.uid : null)
 
-  yield call(rsf.update, `/users/${uid}/token`, token)
+  if (uid) {
+    yield call(rsf.update, `/users/${uid}/token`, token)
+  }
 }
 
 export default function * () {
