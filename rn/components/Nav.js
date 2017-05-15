@@ -29,7 +29,7 @@ class Nav extends PureComponent {
       { loggedIn &&
         <TextInput
           value={newMessage}
-          onChange={event => changeNewMessage(event.target.value)}
+          onChangeText={changeNewMessage}
           onKeyPress={this.onKeyPress}
           autoFocus
         />
