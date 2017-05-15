@@ -18,7 +18,13 @@ exports.meta = functions.database.ref('/messages/{mid}').onWrite(event => {
 
     return admin.database()
       .ref(`/messages/${event.params.mid}`)
-      .update({ meta: user })
+      .update({
+        meta: {
+          colour: user.colour,
+          name: user.name
+        },
+        uid: null
+      })
       .then(() => {
         const payload = {
           notification: {
@@ -37,7 +43,7 @@ exports.chooseUserColour = functions.auth.user().onCreate(event => {
 
   return admin.database().ref(`/users/${event.data.uid}`).set({
     colour,
-    name: event.data.displayName
+    name: event.data.displayName || 'anon'
   })
 })
 
