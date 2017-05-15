@@ -1,4 +1,3 @@
-import firebase from 'firebase'
 import { call, fork, put, take, takeEvery } from 'redux-saga/effects'
 
 import {
@@ -10,13 +9,11 @@ import {
   syncUser
 } from '../reducers/user.actions'
 
-import rsf from '../rsf'
-
-const authProvider = new firebase.auth.GoogleAuthProvider()
+import rsf, { firebaseApp } from '../rsf'
 
 function * loginSaga () {
   try {
-    yield call(rsf.login, authProvider)
+    yield firebaseApp.auth().signInAnonymously()
     yield put(loginSuccess())
   } catch (error) {
     yield put(loginFailure(error))
