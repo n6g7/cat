@@ -32,10 +32,11 @@ class Nav extends PureComponent {
           onChangeText={changeNewMessage}
           onKeyPress={this.onKeyPress}
           autoFocus
+          style={styles.input}
         />
       }
       { loggedIn &&
-        <Button onPress={sendNewMessage} title='Send' />
+        <Button onPress={sendNewMessage} title='Send' color='#e67e22' />
       }
       { !loggedIn &&
         <Button onPress={login} title='Login' color='#e67e22' />
@@ -69,9 +70,15 @@ export default NavContainer
 
 const styles = StyleSheet.create({
   nav: {
-    backgroundColor: '#f7d8bc'
+    alignItems: 'center',
+    backgroundColor: '#f7d8bc',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 8
   },
-  button: {
-    backgroundColor: '#e67e22'
+  input: {
+    backgroundColor: '#fae8d7',
+    flex: 1,
+    marginRight: 5
   }
 })
