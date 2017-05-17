@@ -9,11 +9,11 @@ import {
   syncUser
 } from '../reducers/user.actions'
 
-import rsf, { firebaseApp } from '../rsf'
+import rsf from '../rsf'
 
 function * loginSaga () {
   try {
-    yield firebaseApp.auth().signInAnonymously()
+    yield call(rsf.signInAnonymously)
     yield put(loginSuccess())
   } catch (error) {
     yield put(loginFailure(error))
