@@ -8,16 +8,24 @@ import {
 
 import rsf from '../rsf'
 
+const transformMessages = messages =>
+  Object.keys(messages).map(id => ({
+    ...messages[id],
+    id
+  }))
+
+const createMessage = (uid, text) => ({
+  text,
+  time: new Date().getTime(),
+  uid
+})
+
 function * syncMessagesSaga () {
   const channel = yield call(rsf.channel, 'messages')
 
   while (true) {
     const messages = yield take(channel)
-    const data = Object.keys(messages).map(id => ({
-      ...messages[id],
-      id
-    }))
-    const action = syncMessages(data)
+    const action = syncMessages(transformMessages(messages))
     yield put(action)
   }
 }
@@ -26,11 +34,7 @@ function * sendMessageSaga () {
   const uid = yield select(state => state.user.user.uid)
   const text = yield select(state => state.messages.new)
 
-  yield call(rsf.create, 'messages', {
-    text,
-    time: new Date().getTime(),
-    uid
-  })
+  yield call(rsf.create, 'messages', createMessage(uid, text))
 
   yield put(changeNewMessage(''))
 }
