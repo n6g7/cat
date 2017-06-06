@@ -2399,9 +2399,9 @@ firebase@2.x.x:
   dependencies:
     faye-websocket ">=0.6.0"
 
-firebase@^3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.9.0.tgz#c4237f50f58eeb25081b1839d6cbf175f8f7ed9b"
+firebase@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.1.1.tgz#2c6a07c550e13b9404e38666b646395b1af6d792"
   dependencies:
     dom-storage "^2.0.2"
     faye-websocket "0.9.3"
@@ -4585,9 +4585,9 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
-redux-saga-firebase@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/redux-saga-firebase/-/redux-saga-firebase-0.0.8.tgz#cfc3317115b1726016123f0cb5c9dcc2006b4467"
+redux-saga-firebase@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/redux-saga-firebase/-/redux-saga-firebase-0.1.0.tgz#6257b24bd4ae59a6b8f1485415556bd4070a7d97"
   dependencies:
     redux-saga "^0.15.3"
 
