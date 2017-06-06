@@ -3,9 +3,12 @@ import notifications from './notifications'
 import user from './user'
 
 export default function * rootSaga () {
-  yield [
+  const sagas = [
     messages(),
-    notifications(),
     user()
   ]
+
+  if (window.Notification) sagas.push(notifications())
+
+  yield sagas
 }
