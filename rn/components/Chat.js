@@ -7,16 +7,24 @@ import Message from './Message'
 import Nav from './Nav'
 
 class Chat extends PureComponent {
-  componentDidUpdate (prevProps, prevState) {
-    this.section.scrollTop = this.section.scrollHeight
+  constructor (props) {
+    super(props)
+
+    this.scroll = this.scroll.bind(this)
+  }
+
+  scroll () {
+    this.section.scrollToEnd()
   }
 
   render () {
     const { messages } = this.props
 
     return <View style={styles.main}>
-      <ScrollView ref={c => { this.section = c }} style={styles.chat}>
-        { messages.map(message => <Message message={message} key={message.id} />)}
+      <ScrollView ref={c => { this.section = c }} style={styles.chat} onContentSizeChange={this.scroll}>
+        { messages.map(message =>
+          <Message message={message} key={message.id} />
+        )}
       </ScrollView>
       <Nav />
     </View>
