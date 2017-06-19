@@ -9,10 +9,10 @@ import {
 import rsf from '../rsf'
 
 function * syncMessagesSaga () {
-  const channel = yield call(rsf.channel, 'messages')
+  const channel = yield call(rsf.database.channel, 'messages')
 
   while (true) {
-    const messages = yield take(channel)
+    const { value: messages } = yield take(channel)
     const data = Object.keys(messages).map(id => ({
       ...messages[id],
       id
@@ -26,7 +26,7 @@ function * sendMessageSaga () {
   const uid = yield select(state => state.user.user.uid)
   const text = yield select(state => state.messages.new)
 
-  yield call(rsf.create, 'messages', {
+  yield call(rsf.database.create, 'messages', {
     text,
     time: new Date().getTime(),
     uid

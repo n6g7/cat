@@ -9,7 +9,7 @@ function * saveTokenSaga (token) {
   const uid = yield select(state => state.user.user ? state.user.user.uid : null)
 
   if (uid) {
-    yield call(rsf.update, `/users/${uid}/token`, token)
+    yield call(rsf.database.update, `/users/${uid}/token`, token)
   }
 }
 
@@ -24,6 +24,6 @@ export default function * () {
   })
   yield fork(saveTokenSaga, token)
 
-  const tokenRefreshChannel = rsf.tokenRefreshChannel()
+  const tokenRefreshChannel = rsf.messaging.tokenRefreshChannel()
   yield takeEvery(tokenRefreshChannel, saveTokenSaga)
 }

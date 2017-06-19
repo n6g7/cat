@@ -16,7 +16,7 @@ const authProvider = new firebase.auth.GoogleAuthProvider()
 
 function * loginSaga () {
   try {
-    yield call(rsf.signInWithPopup, authProvider)
+    yield call(rsf.auth.signInWithPopup, authProvider)
     yield put(loginSuccess())
   } catch (error) {
     yield put(loginFailure(error))
@@ -25,7 +25,7 @@ function * loginSaga () {
 
 function * logoutSaga () {
   try {
-    yield call(rsf.logout)
+    yield call(rsf.auth.signOut)
     yield put(logoutSuccess())
   } catch (error) {
     yield put(logoutFailure(error))
@@ -33,7 +33,7 @@ function * logoutSaga () {
 }
 
 function * syncUserSaga () {
-  const channel = yield call(rsf.authChannel)
+  const channel = yield call(rsf.auth.channel)
 
   while (true) {
     const { user } = yield take(channel)
