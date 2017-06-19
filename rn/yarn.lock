@@ -3371,9 +3371,9 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-redux-saga-firebase@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/redux-saga-firebase/-/redux-saga-firebase-0.1.0.tgz#6257b24bd4ae59a6b8f1485415556bd4070a7d97"
+redux-saga-firebase@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/redux-saga-firebase/-/redux-saga-firebase-0.2.0.tgz#9db66744cdd3903c6eafdc34625b72491b5b7e7b"
   dependencies:
     redux-saga "^0.15.3"
 

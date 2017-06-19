@@ -21,10 +21,10 @@ const createMessage = (uid, text) => ({
 })
 
 function * syncMessagesSaga () {
-  const channel = yield call(rsf.channel, 'messages')
+  const channel = yield call(rsf.database.channel, 'messages')
 
   while (true) {
-    const messages = yield take(channel)
+    const { value: messages } = yield take(channel)
     const action = syncMessages(transformMessages(messages))
     yield put(action)
   }
@@ -34,7 +34,7 @@ function * sendMessageSaga () {
   const uid = yield select(state => state.user.user.uid)
   const text = yield select(state => state.messages.new)
 
-  yield call(rsf.create, 'messages', createMessage(uid, text))
+  yield call(rsf.database.create, 'messages', createMessage(uid, text))
 
   yield put(changeNewMessage(''))
 }
