@@ -21,6 +21,9 @@ const createMessage = (uid, text) => ({
 })
 
 function * syncMessagesSaga () {
+  const uh = yield call(rsf.database.read, 'messages/abc')
+  console.log(uh)
+
   yield fork(
     rsf.database.sync,
     'messages',
